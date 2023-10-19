@@ -110,6 +110,11 @@ Punto Extra (Opcional y No Obligatorio):
                   modalContenido.innerHTML = `<span class="cerrar-modal" id="cerrarModal">&times;</span> <p>${productoSeleccionado.name}</p> <p>Precio: ${productoSeleccionado.price}</p> <img src="${productoSeleccionado.image_field}" alt="${productoSeleccionado.name}">
                   <p>${productoSeleccionado.description}</p>`;
                   modal.style.display = 'flex';
+
+                  const cerrarModal = document.getElementById('cerrarModal');
+                  cerrarModal.addEventListener('click', () => {
+                     modal.style.display = 'none';
+                  });
                });
             });
          } else {
@@ -118,21 +123,9 @@ Punto Extra (Opcional y No Obligatorio):
       }
       apiJson.send();
 
-      const mostrarModalBtn = document.getElementById('mostrarModal');
-      const cerrarModalBtn = document.getElementById('cerrarModal');
+      const cerrarModal = document.getElementById('cerrarModal');
       const modalContenido = document.querySelector('.modal-contenido');
       const modal = document.getElementById('miModal');
-
-
-
-      mostrarModalBtn.addEventListener('click', () => {
-         modal.style.display = 'flex';
-      });
-
-
-      cerrarModalBtn.addEventListener('click', () => {
-         modal.style.display = 'none';
-      });
 
 
       document.addEventListener('click', (event) => {
@@ -144,3 +137,5 @@ Punto Extra (Opcional y No Obligatorio):
    </script>
 
 </body>
+
+</html>
